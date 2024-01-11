@@ -1,0 +1,72 @@
+
+<div class="wrap-login100">
+    <form method="post" unicorn:submit.prevent="save()" class="login100-form validate-form p-l-55 p-r-55 p-t-178">
+        {% csrf_token %}
+        <span class="login100-form-title">
+           Profile
+        </span>
+        <div>
+            {% if form.errors %}
+            <p class="text-center m-b25">Your username and password didn't match. Please try again.</p>
+            {% endif %}
+            {% if next %}
+            {% if user.is_authenticated %}
+            <p class="text-center m-b25">Your account doesn't have access to this page. To proceed,
+                please login with an account that has access.</p>
+            {% else %}
+            <p class="text-center m-b25">Please login to see this page.</p>
+            {% endif %}
+            {% endif %}
+        </div>
+        <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter Bio">
+            <textarea class=".input100 form-control " type="text" unicorn:model="profile.desc" autofocus="" maxlength="254" required="" id="id_desc" placeholder="Bio"></textarea>
+            <span class="focus-input100"></span>
+        </div>
+        <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter profession">
+            <input class="input100" type="text" unicorn:model="profile.profession"
+                maxlength="128" required id="id_profession" placeholder="Headline">
+            <span class="focus-input100"></span>
+        </div>
+        <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter alias">
+            <input class="input100" type="text" unicorn:model="user.alias"
+                maxlength="128" required id="id_alias" placeholder="alias">
+            <span class="focus-input100"></span>
+        </div>
+        <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter first_name">
+            <input class="input100" type="text" unicorn:model="user.first_name"
+                autocomplete="first_name" maxlength="254" required id="id_first_name" placeholder="first name">
+            <span class="focus-input100"></span>
+        </div>
+        <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter last_name">
+            <input class="input100" type="text" unicorn:model="user.last_name" 
+                autocomplete="last_name"  required id="id_last_name" placeholder="last name">
+           
+        </div>
+        <div class="wrap-input100 validate-input m-b-16" data-validate="Gender">
+           <div class=".btn-group" role="group" aria-label="Basic radio toggle button group">
+                    <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+                    <label class="btn btn-outline-primary" for="btnradio1">Radio 1</label>
+                  
+                    <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="btnradio2">Radio 2</label>
+                  
+                    <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="btnradio3">Radio 3</label>
+                  </div>
+        </div>
+        <div class="container-login100-form-btn">
+            <button class="login100-form-btn" type="submit">
+                Update Profile
+            </button>
+            <input type="hidden" unicorn:model="profile.next" value="{{ next }}">
+        </div>
+        <!--div class="flex-col-c .p-t-170 p-b-40">
+            <span class="txt1 p-b-9">
+                Don’t have an account?
+            </span>
+            <a href="{% url 'signup' %}" class="txt3">
+                Sign up now
+            </a>
+        </div-->
+    </form>
+</div>

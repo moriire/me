@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+	<!-- Meta -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="keywords" content="">
+	<meta name="robots" content="">
+	<meta name="description" content="Me">
+	<meta property="og:title" content="Me">
+	<meta property="og:description" content="Me">
+	<meta name="format-detection" content="telephone=no">
+
+	<!-- FAVICONS ICON -->
+	<link rel="icon" type="image/x-icon" href="https://mooncart.dexignzone.com/xhtml/images/favicon.png">
+
+	<!-- PAGE TITLE HERE -->
+	<title>Me</title>
+
+	<!-- MOBILE SPECIFIC -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- GOOGLE FONTS-->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Roboto:wght@100;300;400;500;700;900&display=swap"
+		rel="stylesheet">
+		<!-- STYLESHEETS -->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'fontawesome/css/all.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'style1.css' %}">
+</head>
+<body>	
+		{% block content %}{% endblock %}
+	<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script><!-- BOOTSTRAP MIN JS -->
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script><!-- JQUERY MIN JS -->
+	<script src="{% static 'js/main.js' %}"></script><!-- BOOTSTRAP MIN JS -->
+
+</body>
+</html>

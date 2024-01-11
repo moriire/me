@@ -1,0 +1,44 @@
+<div>
+    {% for message in messages.que %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ messages }}
+    </div>
+    {% endfor %}
+    <form method="post" unicorn:submit.prevent="update_profile">
+        {% csrf_token %}
+        
+            <div class="form-group mb-3">
+                <label for="first_name">First Name</label>
+            <input type="text" id="first_name" unicorn:model="user_first_name" class="form-control">
+           
+            </div>
+            <div class="form-group mb-3">
+                <label for="last_name">Last Name</label>
+                <input type="text" unicorn:model="user_last_name" class="form-control">
+               
+                </div>
+                <div class="form-group mb-3">
+                    <label for="phone">Phone</label>
+                    <input type="text" id="phone" unicorn:model="user_phone" class="form-control">
+                   
+                </div>
+                <div class="form-group mb-3">
+                    Email<br>
+                    <input type="email" unicorn:model="user_email" class="form-control">
+                   
+                </div>
+
+            <div class="form-group mb-3">
+               <label for="password"></label>
+                <input type="password" id="password" unicorn:model="user_password" class="form-control">
+              
+                </div>
+        
+        <div class="form-group mb-3">
+            <button type="submit" class="btn btn-primary" unicorn:click="update_profile">Update Profile</button>
+        </div>
+        <div class="form-group mb-3">
+            <p>Already have an account? <a href="{% url 'login' %}">Login</a> here</p>
+        </div>
+        </form>
+</div>
