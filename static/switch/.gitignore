@@ -1,1 +1,11 @@
-package-lock.json
+# Folders to ignore
+node_modules/*
+
+# OS or Editor folders
+._*
+.cache
+.DS_Store
+Thumbs.db
+
+# Files
+npm-debug.log

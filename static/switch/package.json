@@ -1,27 +1,44 @@
 {
-  "name": "light-switch-bootstrap",
-  "version": "0.1.5",
-  "description": "Basic Bootstrap 5 custom checkbox to use night mode in your web site.",
+  "name": "dark-mode-switch",
+  "version": "1.0.1",
+  "description": "Dark-mode theme switch for Bootstrap with local storage preference",
   "keywords": [
     "bootstrap",
     "dark-mode"
   ],
-  "main": "switch.js",
-  "scripts": {
-    "test": "echo \"No test specified\""
+  "homepage": "https://github.com/coliff/dark-mode-switch",
+  "bugs": {
+    "url": "https://github.com/coliff/dark-mode-switch/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/han109k/light-switch.git"
+    "url": "git+https://github.com/coliff/dark-mode-switch.git"
+  },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/coliff"
   },
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/han109k/light-switch/issues"
+  "author": "Christian Oliff (https://christianoliff.com)",
+  "main": "dark-mode-switch.min.js",
+  "scripts": {
+    "build": "npm run prettier && npm run test && npm run minify",
+    "minify": "terser --ecma 5 --keep-classnames --keep-fnames --output dark-mode-switch.min.js -- dark-mode-switch.js",
+    "prettier": "prettier --write dark-mode-switch.js",
+    "test": "eslint dark-mode-switch.js"
   },
-  "homepage": "https://github.com/han109k/light-switch#readme",
   "files": [
-    "switch.js",
+    "dark-mode-switch.js",
+    "dark-mode-switch.min.js",
+    "dark-mode-switch.css",
+    "LICENSE",
     "package.json",
     "README.md"
-  ]
+  ],
+  "devDependencies": {
+    "eslint": "^8.49.0",
+    "eslint-config-prettier": "^9.0.0",
+    "prettier": "^3.0.3",
+    "terser": "^5.19.4"
+  }
 }

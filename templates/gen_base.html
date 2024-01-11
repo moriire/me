@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-{% load static %}
+<html lang="en">
+	{% load static %}
 {% load unicorn %}
-<html lang="en"  data-bs-theme="light">
 <head>
 	<!-- Meta -->
 	<meta charset="utf-8">
@@ -36,119 +36,64 @@
 	<link rel="stylesheet" type="text/css" href="{% static 'form/vendor/animsition/css/animsition.min.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'form/css/util.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'form/css/main.css' %}">
-	<link rel="stylesheet" type="text/css" href="{% static 'switch/custom.css' %}">
-	<script href="{% static 'switch/switch.js' %}"></script>
+	<!--link rel="stylesheet" type="text/css" href="{% static 'switch/dark-mode.css' %}"-->
 	
-	<!--script>
-		(() => {
-  'use strict'
-
-  const getStoredTheme = () => localStorage.getItem('theme')
-  const setStoredTheme = theme => localStorage.setItem('theme', theme)
-
-  const getPreferredTheme = () => {
-    const storedTheme = getStoredTheme()
-    if (storedTheme) {
-      return storedTheme
-    }
-
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
-  }
-
-  const setTheme = theme => {
-    if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      document.documentElement.setAttribute('data-bs-theme', 'dark')
-    } else {
-      document.documentElement.setAttribute('data-bs-theme', theme)
-    }
-  }
-
-  setTheme(getPreferredTheme())
-
-  const showActiveTheme = (theme, focus = false) => {
-    const themeSwitcher = document.querySelector('#bd-theme')
-
-    if (!themeSwitcher) {
-      return
-    }
-
-    const themeSwitcherText = document.querySelector('#bd-theme-text')
-    const activeThemeIcon = document.querySelector('.theme-icon-active use')
-    const btnToActive = document.querySelector(`[data-bs-theme-value="${theme}"]`)
-    const svgOfActiveBtn = btnToActive.querySelector('svg use').getAttribute('href')
-
-    document.querySelectorAll('[data-bs-theme-value]').forEach(element => {
-      element.classList.remove('active')
-      element.setAttribute('aria-pressed', 'false')
-    })
-
-    btnToActive.classList.add('active')
-    btnToActive.setAttribute('aria-pressed', 'true')
-    activeThemeIcon.setAttribute('href', svgOfActiveBtn)
-    const themeSwitcherLabel = `${themeSwitcherText.textContent} (${btnToActive.dataset.bsThemeValue})`
-    themeSwitcher.setAttribute('aria-label', themeSwitcherLabel)
-
-    if (focus) {
-      themeSwitcher.focus()
-    }
-  }
-
-  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
-    const storedTheme = getStoredTheme()
-    if (storedTheme !== 'light' && storedTheme !== 'dark') {
-      setTheme(getPreferredTheme())
-    }
-  })
-
-  window.addEventListener('DOMContentLoaded', () => {
-    showActiveTheme(getPreferredTheme())
-
-    document.querySelectorAll('[data-bs-theme-value]')
-      .forEach(toggle => {
-        toggle.addEventListener('click', () => {
-          const theme = toggle.getAttribute('data-bs-theme-value')
-          setStoredTheme(theme)
-          setTheme(theme)
-          showActiveTheme(theme, true)
-        })
-      })
-  })
-})()
-	</script-->
+  <!-- IE 11 polyfill for CSS and Custom Properties -->
+  <script
+    nomodule>window.MSInputMethodContext && document.documentMode && document.write('<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-ie11@5/css/bootstrap-ie11.min.css"><script src="https://cdn.jsdelivr.net/npm/ie11-custom-properties@4/ie11CustomProperties.min.js"><\/script>');</script>
+	
+	
 	{% unicorn_scripts %}
 </head>
 <body>	
 	{% csrf_token %}
-	<div class="container my-4 p-4">
-		<nav class="navbar navbar-expand-lg navbar-light bg-light p-3">
-			<div class="container-fluid">
-			  <a class="navbar-brand" href="#">Navbar</a>
-			  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			  </button>
-			  <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-				<ul class="navbar-nav">
-				  <li class="nav-item">
-					<a class="nav-link active" aria-current="page" href="#">Home</a>
-				  </li>
-				  <li class="nav-item">
-					<a class="nav-link" href="#">Features</a>
-				  </li>
-				  <li class="nav-item">
-					<a class="nav-link" href="#">Pricing</a>
-				  </li>
-				  <li class="nav-item">
-					<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-				  </li>
-				</ul>
-			  </div>
+	<div class="container m-3">
+		<div class="row justify-content-center d-flex m-3">
+			<div class="col-10">
+				<nav  class="navbar navbar-expand-lg navbar-light p-3">
+				
+					<a class="navbar-brand" href="#">Me</a>
+					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+					  <span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+					  <ul class="navbar-nav">
+						<li class="nav-item">
+						  <a class="nav-link active" aria-current="page" href="#">Home</a>
+						</li>
+						<li class="nav-item">
+						  <a class="nav-link" href="#">Features</a>
+						</li>
+						<li class="nav-item">
+						  <a class="nav-link" href="#">Pricing</a>
+						</li>
+						<li class="nav-item">
+						  <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+						</li>
+						<li class="nav-item">
+						  <div class="nav-link">
+	  
+							  <div class="form-check form-switch">
+								<input type="checkbox" class="form-check-input" id="darkSwitch">
+								<label class="custom-control-label" for="darkSwitch">Dark Mode</label>
+							  </div>
+							  <script href="{% static 'switch/dark-mode-switch.min.js' %}"></script>
+					
+							</div>
+						</li>
+					  </ul>
+					</div>
+				   
+				  
+				</nav>
 			</div>
-		  </nav>
+			
+		</div>
+		
 	</div>
 		{% block content %}{% endblock %}
-	<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script><!-- BOOTSTRAP MIN JS -->
 	<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script><!-- JQUERY MIN JS -->
-	<script src="{% static 'form/js/main.js' %}"></script><!-- BOOTSTRAP MIN JS -->
+	<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script><!-- BOOTSTRAP MIN JS -->
 	<script src="{% static 'form/vendor/countdowntime/countdowntime.js' %}"></script><!-- BOOTSTRAP MIN JS -->
 	<script src="{% static 'form/js/main.js' %}"></script><!-- BOOTSTRAP MIN JS -->
 	<script>
@@ -160,30 +105,7 @@
 		toastList.forEach(toast => toast.show())
 		}
 </script>
-	</script>
-	 <!-- LIGHT SWITCH -->
-	 <div class="d-flex">
-		<div class="form-check form-switch ms-auto mt-3 me-3">
-		  <label class="form-check-label ms-3" for="lightSwitch">
-			<svg
-			  xmlns="http://www.w3.org/2000/svg"
-			  width="25"
-			  height="25"
-			  fill="currentColor"
-			  class="bi bi-brightness-high"
-			  viewBox="0 0 16 16"
-			>
-			  <path
-				d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"
-			  />
-			</svg>
-		  </label>
-		  <input
-			class="form-check-input"
-			type="checkbox"
-			id="lightSwitch"
-		  />
-		</div>
-	  </div>
+<script src="{% static 'switch/dark-mode-switch.min.js' %}"></script>
+	
 </body>
 </html>

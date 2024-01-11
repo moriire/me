@@ -1,0 +1,38 @@
+<div class="wrap-login100 my-4 pb-4">
+    <h2 class="title text-center text-dark py-4">Socials</h2>
+    
+    <form method="post" unicorn:submit.prevent="save_social()" class="login100-form validate-form p-l-55 p-r-55 pt-4">
+        {% csrf_token %}
+       <div class="form-row row">
+        <div class="col">{{ media.user }}
+            <div class="wrap-input100 validate-input m-b-16" data-validate="Social media name">
+                <select  id="" class="form-select input100" unicorn:model="media.name" >
+                    <option value="facebook">facebook</option>
+                    <option value="Instagram">Instagram</option>
+                    <option value="Linkedin">Linkedin</option>
+                </select>
+            </div>
+        </div>
+        <div class="col">
+            <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter last_name">
+                <input class="input100" type="url" unicorn:model="media.link" 
+                    autocomplete="url"  required id="id_link" placeholder="username or link">
+               
+            </div>
+        </div>
+       </div>
+        <div class="container-login100-form-btn">
+            <button class="login100-form-btn" type="submit">
+                Add Social
+            </button>
+        </div>
+        <!--div class="flex-col-c .p-t-170 p-b-40">
+            <span class="txt1 p-b-9">
+                Don’t have an account?
+            </span>
+            <a href="{% url 'signup' %}" class="txt3">
+                Sign up now
+            </a>
+        </div-->
+    </form>
+</div>

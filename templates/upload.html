@@ -1,7 +1,7 @@
 {% extends 'gen_base.html' %}
 {% load unicorn %}
 {% block content %}
-<div class="position-fixed top-0 .end-0 p-3" style="z-index: 11">
+<div class="position-fixed top-0 end-0 p-3" style="z-index: 11">
 	<div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
 	  <div class="toast-header bg-success text-light">
 		<strong class="me-auto">Success</strong>
@@ -46,9 +46,12 @@
 					</form>
 				</div>
 			</div>
-			<div class="col-lg-6 overflow-y-auto" style="height: 80vh;">
+			<div class="col-lg-6 col-sm-10 col-xs-10 overflow-y-auto overflow-x-hidden" style="height: 80vh;">
 				{% unicorn 'update-profile' %}
+
+				{% unicorn 'user-socials' %}
 			</div>
+
 		</div>
 
 	</div>
