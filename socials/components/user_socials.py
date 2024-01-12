@@ -3,15 +3,14 @@ from socials.models import Media, Social
 from users.models import User
 class UserSocialsView(UnicornView):
     media: QuerySetType[Media] = Media()
-    medias: Media = Media.objects.none()
+    medias: QuerySetType[Media] = Media.objects.none()
     user:User
 
     def mount(self):
         self.user = self.request.user
-        obj = Social.objects.get(user=self.request.user)
-        print(obj.socials.count())
+        obj = Social.objects.get(user= self.user)
         self.media.name = 'Linkedin'
-        self.media.user = self.request.user
+        self.media.user = self.user
         self.update()
 
     def save_social(self):
