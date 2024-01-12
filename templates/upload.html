@@ -15,7 +15,7 @@
   </div>
 <div class="limiter">
 	<div class="container">
-		<div class="row vh-100 align-items-center">
+		<div class="row vh-100 align-items-center justify-content-center">
 			<div class="col-lg-6">
 				<div class="wrap-100 py-4">
 					<form method="post" action="/upload/" enctype="multipart/form-data"
@@ -29,7 +29,7 @@
 							<p class="text-center m-b25">Your username and password didn't match. Please try again.</p>
 							{% endif %}
 						</div>
-						<div class="wrap-input100 m-b-16">
+						<div class="wrap-input100 m-b-16 text-center">
 							<img src="{{ user.user_profile.pic.url }}" alt="" width="400">
 						</div>
 						<div class="wrap-input100 m-b-16">
@@ -46,10 +46,19 @@
 					</form>
 				</div>
 			</div>
-			<div class="col-lg-6 col-sm-10 col-xs-10 overflow-y-auto overflow-x-hidden" style="height: 80vh;">
-				{% unicorn 'update-profile' %}
-
-				{% unicorn 'user-socials' %}
+			<div class="col-lg-6 overflow-y-auto overflow-x-hidden" style="height: 80vh;">
+				
+				<div class="row justify-content-center">
+					<div class="col-10">
+						{% unicorn 'update-profile' %}
+					</div>
+				</div>
+				<div class="row justify-content-center">
+					<div class="col-10">
+						{% unicorn 'user-socials' %}
+					</div>
+				</div>
+				
 			</div>
 
 		</div>

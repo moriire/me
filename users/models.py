@@ -6,6 +6,7 @@ from django.utils.translation import gettext as _
 from django.utils import timezone
 from .manager import CustomUserManager
 import uuid
+#from socials.models import Media
 
 def user_directory_path(instance, filename):
     return '{0}/{1}'.format(instance.user.alias, filename)
@@ -82,6 +83,7 @@ class Profile(models.Model):
     profession = models.CharField(max_length=128)
     pic = models.ImageField(upload_to=user_directory_path, blank=True)
     desc = models.TextField(default="")
+    #socials = models.ManyToManyField(Media, related_name="user_social_media", blank=True,)
 
     def __str__(self):
         return f'{self.user.id}'
