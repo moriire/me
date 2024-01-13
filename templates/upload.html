@@ -30,7 +30,12 @@
 							{% endif %}
 						</div>
 						<div class="wrap-input100 m-b-16 text-center">
-							<img src="{{ user.user_profile.pic.url }}" alt="" width="400">
+							{% if user.user_profile.pic %}
+							<img src="{{ user.user_profile.pic.url }}" alt="{{ user.get_full_name }}" width="400">
+							{% else %}
+							<img src="/media/dummy.png" alt="{{ user.get_full_name }}" width="400">
+							
+							{% endif %}
 						</div>
 						<div class="wrap-input100 m-b-16">
 							<input class="form-control .input100" type="file" name="pic" required id="id_pic" accept="image/*,capture=camera" >

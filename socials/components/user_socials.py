@@ -1,20 +1,30 @@
 from django_unicorn.components import UnicornView, QuerySetType
-from socials.models import Media, Social
+from socials.models import Media, Social, MediaType
 from users.models import User
+
 class UserSocialsView(UnicornView):
-    media: QuerySetType[Media] = Media()
+    media: Media = Media()
     medias: QuerySetType[Media] = Media.objects.none()
+    media_types: MediaType = MediaType.objects.none()
+    user_name:str=''
+    name:str = ''
     user:User
 
     def mount(self):
         self.user = self.request.user
-        obj = Social.objects.get(user= self.user)
-        self.media.name = 'Linkedin'
-        self.media.user = self.user
+        self.media_types = MediaType.objects.all()
         self.update()
 
     def save_social(self):
-        self.media.save()
+        #self.media.media = self.media_types.filter(pk = self.name).first()
+        print(self.name)
+        media =  MediaType.objects.filter(name = self.name).first()
+        obj = Media(
+            user = self.user,
+            media =  media,
+            user_name = self.user_name
+        )
+        obj.save()
         self.update()
         self.clear()
 
@@ -31,5 +41,4 @@ class UserSocialsView(UnicornView):
 
     def clear(self):
         self.reset()
-        self.media.name = ''
-        self.media.link = ''
+        

@@ -12,13 +12,18 @@
 					style="position: absolute; right: 55px; top: 60px; border-radius:50%; outline: 2px green solid; padding:5px; background-color: #ffffff;">
 					<i class="fa fa-share text-success fa-3x"></i>
 				</button>
-				<img class="img img-fluid w-100 rounded-circle shadow-sm" src="/media/acsolotltd/ibmabdulsalam.jpeg"
+				{% if user.user_profile.pic %}
+				<img class="img img-fluid w-100 rounded-circle shadow-sm" src="{{ profile.pic.url }}"
 					alt="">
-
+				{% else %}
+					<img class="img img-fluid w-100 rounded-circle shadow-sm" src="/media/dummy.png"
+					alt="">
+				{% endif %}
 			</div>
 			<div class="col-lg-7 text-center text-lg-left">
 				<h2 class="display-4 text-uppercase text-primary mb-2" style="-webkit-text-stroke: 2px #ffffff;">
 					{{ profile.user.get_full_name }}
+					
 				</h2>
 				<h3 class="text-white font-weight-normal mb-3">{{ profile.profession }}</h3>
 				<p>
@@ -27,22 +32,12 @@
 				<!--h1 class="typed-text-output d-inline font-weight-lighter text-white"></h1>
 				<div class="typed-text d-none">Web Designer, Web Developer, Cyber Security Expert, Network Security Expert</div-->
 				<div class="d-flex justify-content-center justify-content-lg-start pt-3">
+					{% for media in user.user_media.all %}
+					<a class="mx-2 bg-light btn-social rounded-circle" href="{{ media.link }}">
+						<i class="{{ media.media.icon }} fa-2x p-2"></i>
+					</a>
+					{% endfor %}
 					
-					<a class="mx-2 bg-light btn-social rounded-circle" href="https://www.linkedin.com/in/ibmabdulsalam">
-						<i class="fab fa-linkedin-in fa-2x p-2"></i>
-					</a>
-					<a class="mx-2 bg-light btn-social rounded-circle" href="https://www.github.com/moriire">
-						<i class="fa-2x fab fa-github p-2"></i>
-					</a>
-					<a class="mx-2 bg-light btn-social rounded-circle" href="https://www.facebook.com/IBMobolaji/">
-						<i class="fa-2x fab fa-facebook-f p-2"></i>
-					</a>
-					<a class="mx-2 bg-light btn-social .rounded-circle" href="https://www.linkedin.com/in/ibmabdulsalam">
-						<i class="fab fa-linkedin-in fa-2x p-2"></i>
-					</a>
-					<a class="mx-2 bg-light btn-social .rounded-circle .p-4 text-center" href="https://www.facebook.com/IBMobolaji/">
-						<i class="fa-2x fab fa-facebook-f p-2"></i>
-					</a>
 				</div>
 				<!--div class="d-flex align-items-center justify-content-center justify-content-lg-start pt-4">
 					<a href="https://www.myjobmag.com/cv-preview?d=classic" class="btn btn-outline-light mr-5">Download CV</a>

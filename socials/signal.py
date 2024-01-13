@@ -6,4 +6,4 @@ from .models import Media, Social
 def create_item_with_images(sender, created, instance, **kwargs):
     social = Social.objects.get(user = instance.user)
     if created:
-        social.socials.add(instance.pk)
+        social.socials.add(instance)

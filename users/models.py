@@ -85,7 +85,7 @@ class Profile(models.Model):
     desc = models.TextField(default="")
     certifications = models.BooleanField(default=False)
     skills = models.BooleanField(default=False)
-    #socials = models.ManyToManyField(Media, related_name="user_social_media", blank=True,)
 
     def __str__(self):
         return f'{self.user.id}'
+    
