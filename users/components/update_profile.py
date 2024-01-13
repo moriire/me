@@ -5,7 +5,7 @@ class UpdateProfileView(UnicornView):
     profile: Profile = None
     user: User = None
     def mount(self):
-        self.profile =  Profile.objects.filter(user=self.request.user).first()
+        self.profile =self.request.user.user_profile#  Profile.objects.filter(user=self.request.user).first()
         self.user = self.request.user
 
     def save(self):

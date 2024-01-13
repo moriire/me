@@ -1,0 +1,21 @@
+{% load unicorn %}
+<div class=".wrap-login100 my-4 pb-4">
+    <h2 class="title text-center  py-4">Sections</h2>
+    
+    <form class="login100-form validate-form p-l-55 p-r-55 pt-4">
+        {% csrf_token %}
+        
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" id="education" unicorn:model="section.education" unicorn:click="$toggle('section.education')" unicorn:change="change">
+            <label class="form-check-label" for="education" >education</label>
+        </div>
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" id="certification" unicorn:model="section.certification" unicorn:click="$toggle('section.certification')" unicorn:change="change">
+            <label class="form-check-label" for="certification" >certification</label>
+        </div>
+        <div class="form-check form-switch">
+            <input class="form-check-input form-control" type="checkbox" id="skill" unicorn:model="section.skill" unicorn:click="$toggle('section.skill')" unicorn:change="change">
+            <label class="form-check-label" for="skill" >skill</label>
+        </div>
+    </form>
+</div>

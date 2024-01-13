@@ -1,9 +1,10 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth import get_user_model
-from users.models import Profile
-User = get_user_model()
+from users.models import Profile, Section, User
+#User = get_user_model()
 admin.site.register(Profile)
+admin.site.register(Section)
 admin.site.register(User)
 """
 @admin.register(User)

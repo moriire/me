@@ -5,31 +5,18 @@
         <span class="login100-form-title">
            Profile
         </span>
-        <div>
-            {% if form.errors %}
-            <p class="text-center m-b25">Your username and password didn't match. Please try again.</p>
-            {% endif %}
-            {% if next %}
-            {% if user.is_authenticated %}
-            <p class="text-center m-b25">Your account doesn't have access to this page. To proceed,
-                please login with an account that has access.</p>
-            {% else %}
-            <p class="text-center m-b25">Please login to see this page.</p>
-            {% endif %}
-            {% endif %}
-        </div>
         <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter Bio">
-            <textarea class=".input100 form-control " type="text" unicorn:model="profile.desc" autofocus="" maxlength="254" required="" id="id_desc" placeholder="Bio"></textarea>
-            <span class="focus-input100"></span>
+            <textarea class=".input100 form-control " type="text" unicorn:model="profile.desc" autofocus="" maxlength="254" required="" id="id_desc" placeholder="Bio" rows="6"></textarea>
+            <!--span class="focus-input100"></span-->
         </div>
         <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter profession">
             <input class="input100" type="text" unicorn:model="profile.profession"
-                maxlength="128" required id="id_profession" placeholder="Headline">
+                maxlength="128" required id="id_profession" placeholder="Headline" required>
             <span class="focus-input100"></span>
         </div>
         <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter alias">
             <input class="input100" type="text" unicorn:model="user.alias"
-                maxlength="128" required id="id_alias" placeholder="alias">
+                maxlength="128" required id="id_alias" placeholder="alias" >
             <span class="focus-input100"></span>
         </div>
         <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter first_name">
@@ -44,17 +31,10 @@
         </div>
      
         <div class="container-login100-form-btn">
-            <button class="login100-form-btn" type="submit" unicorn:click="save()">
+            <button class="login100-form-btn"  unicorn:click="save()">
                 Update Profile
             </button>
         </div>
-        <!--div class="flex-col-c .p-t-170 p-b-40">
-            <span class="txt1 p-b-9">
-                Don’t have an account?
-            </span>
-            <a href="{% url 'signup' %}" class="txt3">
-                Sign up now
-            </a>
-        </div-->
+       
     </form>
 </div>

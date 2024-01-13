@@ -36,7 +36,7 @@ class ProfileView(LoginRequiredMixin, DetailView):
         return super().get_context_data(**kwargs)
 
 def activation_sent_view(request):
-    return render(request, 'activation_sent.html')
+    return render(request, 'registration/activation_sent.html')
 
 def activate(request, uidb64, token):
     try:
@@ -49,12 +49,12 @@ def activate(request, uidb64, token):
         # if valid set active true 
         user.is_active = True
         # set signup_confirmation true
-        user.user_agent.signup_confirmation = True
+        user.user_profile.signup_confirmation = True
         user.save()
         login(request, user)
         return redirect('home')
     else:
-        return render(request, 'user/activation_invalid.html')
+        return render(request, 'registration/activation_invalid.html')
 
 def signup_view(request):
     if request.method  == 'POST':
@@ -62,7 +62,9 @@ def signup_view(request):
         if form.is_valid():
             user = form.save()
             user.refresh_from_db()
-            user.user_profile.user = user
+            #user.user_profile.create(user = user)
+            #user.user_profile.user = user
+            #user.user_media.user = user
             #user.user_agent.last_name = form.cleaned_data.get('last_name')
             #user.user_agent.email = form.cleaned_data.get('email')
             # user can't login until link confirmed
@@ -72,7 +74,7 @@ def signup_view(request):
             subject = 'Please Activate Your Account'
             # load a template like get_template() 
             # and calls its render() method immediately.
-            message = render_to_string('activation_request.html', {
+            message = render_to_string('registration/activation_request.html', {
                 'user': user,
                 'domain': current_site.domain,
                 'uid': urlsafe_base64_encode(force_bytes(user.pk)),

@@ -23,7 +23,7 @@ class Media(models.Model):
         return f"{self.media.url}/{self.user_name}"
     
 class Social(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="user_social")
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="user_social", null=True)
     socials = models.ManyToManyField(Media, related_name="user_social_media", blank=True,)
     def __str__(self):
         return f'{self.user.id}'

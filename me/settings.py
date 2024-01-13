@@ -113,5 +113,10 @@ STATIC_ROOT =  BASE_DIR /'static'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 LOGIN_REDIRECT_URL = "/upload/"
 LOGIN_URL = "/auth/login/"
+LOGOUT_URL = '/auth/logout/'
+LOGOUT_REDIRECT_URL="/"
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = "users.User"

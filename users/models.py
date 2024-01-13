@@ -6,6 +6,7 @@ from django.utils.translation import gettext as _
 from django.utils import timezone
 from .manager import CustomUserManager
 import uuid
+from django.core.mail import send_mail
 #from socials.models import Media
 
 def user_directory_path(instance, filename):
@@ -35,6 +36,11 @@ class User(AbstractBaseUser, PermissionsMixin):
     
     def get_full_name(self):
         return f"{self.first_name} {self.last_name}"
+    
+    def email_user(self, subject, message, from_email=None, **kwargs):
+        """Send an email to this user."""
+        send_mail(subject, message, from_email, [self.email], **kwargs)
+
 
 STATES:dict[str] = {
                 'FC' : 'Abuja',
@@ -76,16 +82,26 @@ STATES:dict[str] = {
                 'ZA' : 'Zamfara'
     }
 class Profile(models.Model):
-    user = models.OneToOneField(User, related_name="user_profile", on_delete=models.CASCADE, null=True)
-    state = models.CharField(max_length=2, choices=STATES)
-    street = models.CharField(max_length=60, null=True, blank=True)
-    house_no = models.CharField(max_length=5, null=True, blank=True)
-    profession = models.CharField(max_length=128)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True, blank=True, related_name="user_profile")
+    profession = models.CharField(max_length=128, null=True, blank=True)
     pic = models.ImageField(upload_to=user_directory_path, blank=True)
-    desc = models.TextField(default="")
-    certifications = models.BooleanField(default=False)
-    skills = models.BooleanField(default=False)
+    desc = models.TextField(blank=True)
+    signup_confirmation = models.BooleanField(default=False)
+    #certifications = models.BooleanField(default=False)
+    #skills = models.BooleanField(default=False)
 
     def __str__(self):
         return f'{self.user.id}'
+    
+    
+
+class Section(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True, blank=True, related_name="user_section")
+    certification = models.BooleanField(default=False)
+    skill = models.BooleanField(default=False)
+    education = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f'{self.user.id}'
+    
     
