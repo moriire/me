@@ -46,6 +46,7 @@ class UploadView(LoginRequiredMixin, TemplateView):
 
 urlpatterns = [
     path('auth/', include('users.urls')),
+    path('', TemplateView.as_view(template_name="home.html"), name='home'),
     path("<str:pk>/me", IndexView.as_view(), name='user-home'),#TemplateView.as_view(template_name='index.html')),
     path("upload/", UploadView.as_view(), name='user-upload'),#TemplateView.as_view(template_name='index.html')),
     path("unicorn/", include("django_unicorn.urls")),
