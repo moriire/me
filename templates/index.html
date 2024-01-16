@@ -100,9 +100,9 @@
 							</a>
 						</div>
 						<div class="col-12">
-							<a class="d-flex justify-content-between py-3 text-decoration-none fs-5" href="/hello">
+							<a class="d-flex justify-content-between py-3 text-decoration-none fs-5" href="https://www.facebook.com/share.php?u=https://www.facebook.com/{{ profile.user.alias }}">
 								<div>
-									<i class="fa-brands fa-square-facebook"></i><span>Share on Snapchat</span>
+									<i class="fa-brands fa-square-facebook"></i><span>Share on facebook</span>
 								</div>
 								<div>
 									<i class="fa-solid fa-chevron-right float-end"></i>
@@ -110,7 +110,7 @@
 							</a>
 						</div>
 						<div class="col-12">
-							<a class="d-flex justify-content-between py-3 text-decoration-none fs-5" href="/hello">
+							<a class="d-flex justify-content-between py-3 text-decoration-none fs-5" href="https://www.linkedin.com/sharing/share-offsite/?url=https://www.linkedin.com/{{ profile.user.alias }}">
 								<div>
 									<i class="fa-brands fa-linkedin"></i><span>Share on Linkedin</span>
 								</div>
@@ -150,18 +150,28 @@
 							</a>
 						</div>
 					</div>
-
+					<div class="row justify-content-start mb-3">
+						<div class="col input-group">
+							<input type="text" class="form-control" value="{{ request.host }}/{{ profile.user.alias }}/me/">
+							<span class="input-group-text">
+								<i class="fa-solid fa-copy"></i>
+							</span>
+						</div>
+						
+					</div>
 					<div class="row justify-content-center mb-3">
 						<div class="col-6">
 							<a href="{% url 'login' %}" class="btn btn-secondary  btn-block">Login</a>
 						</div>
+						
 						<div class="col-6">
 							<a href="{% url 'signup' %}" class="btn btn-primary btn-block">Signup</a>
 						</div>
 
 					</div>
+					
 					<div class="row justify-content-start">
-						<div class="col-6 m-0 p-0">
+						<div class="col m-0 p-0">
 							<a class="btn btn-link"><i class="fa fa-message"></i> Report Account</a>
 						</div>
 
