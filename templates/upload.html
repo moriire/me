@@ -1,18 +1,7 @@
 {% extends 'gen_base.html' %}
 {% load unicorn %}
 {% block content %}
-<div class="position-fixed top-0 end-0 p-3" style="z-index: 11">
-	<div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
-	  <div class="toast-header bg-success text-light">
-		<strong class="me-auto">Success</strong>
-		<small>11 mins ago</small>
-		<button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-	  </div>
-	  <div class="toast-body">
-		Profile updated successfully!
-	  </div>
-	</div>
-  </div>
+
 <div class="limiter">
 	<div class="container">
 		<div class="row vh-100 align-items-center justify-content-center">
@@ -29,16 +18,16 @@
 							<p class="text-center m-b25">Your username and password didn't match. Please try again.</p>
 							{% endif %}
 						</div>
-						<div class="wrap-input100 m-b-16 text-center">
+						<div class=".wrap-input100 m-b-16 text-center">
 							{% if user.user_profile.pic %}
-							<img src="{{ user.user_profile.pic.url }}" alt="{{ user.get_full_name }}" width="400">
+							<img src="{{ user.user_profile.pic.url }}" class="img img-thumbnail img-responsive" alt="{{ user.get_full_name }}" width="400">
 							{% else %}
-							<img src="/media/dummy.png" alt="{{ user.get_full_name }}" width="400">
+							<img src="/media/dummy.png" alt="{{ user.get_full_name }}" width="400" class="img img-thumbnail img-responsive img-fluids">
 							
 							{% endif %}
 						</div>
-						<div class="wrap-input100 m-b-16">
-							<input class="form-control .input100" type="file" name="pic" required id="id_pic" accept="image/*,capture=camera" >
+						<div class=".wrap-input100 m-b-16">
+							<input class="form-control" type="file" name="pic" required id="id_pic" accept="image/*,capture=camera" >
 							<p>Drop-down and Images only</p>
 						</div>
 

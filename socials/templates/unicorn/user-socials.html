@@ -1,7 +1,7 @@
 {% load unicorn %}
 <div class=".wrap-login100 my-4 pb-4">
     <h2 class="title text-center  py-4">Socials</h2>
-    <div class=".mx-4 p-3">
+    <div class=".mx-4 .p-3">
 
         {% for med in medias %}
         <div class="input-group m-2" unicorn:key="med.pk">
@@ -21,11 +21,11 @@
         </div>
         {% endfor %}
     </div>
-    <div class="login100-form validate-form p-l-55 p-r-55 pt-4">
+    <div class=".login100-form validate-form .p-l-55 .p-r-55 pt-4">
         {% csrf_token %}
-        <div class="form-row row">
-            <div class="col">
-                <div class=".wrap-input100 validate-input m-b-16" data-validate="Social media name">
+        <div class="row justify-content-between m-b-16">
+            <div class="col-6">
+                <div class="validate-input" data-validate="Social media name">
                     <select id="media" class="form-select input100" unicorn:model="name">
                         <option value=""  selected>Social media</option>
                         {% for mtype in media_types %}
@@ -34,8 +34,8 @@
                     </select>
                 </div>
             </div>
-            <div class="col">
-                <div class=".wrap-input100 validate-input m-b-16" data-validate="Please enter user_name">
+            <div class="col-6">
+                <div class="validate-input" data-validate="Please enter user_name">
                     <input class="input100" type="text" unicorn:model="user_name"  required
                         id="id_user_name" placeholder="username">
                 </div>

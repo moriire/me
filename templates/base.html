@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 {% load static %}
-<html lang="en">
+<html lang="en" data-bs-theme="blue">
 <head>
 	<!-- Meta -->
 	<meta charset="utf-8">
@@ -33,7 +33,7 @@
 	<link rel="stylesheet" type="text/css" href="{% static 'style1.css' %}">
 	{% block style %}{% endblock %}
 </head>
-<body>	
+<body data-bs-theme="blue">	
 		{% block content %}{% endblock %}
 	<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script><!-- BOOTSTRAP MIN JS -->
 	<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script><!-- JQUERY MIN JS -->

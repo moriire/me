@@ -7,14 +7,37 @@
     text-decoration: none;
     background-color: transparent;
 }
+[data-bs-theme="blue"] {
+  --bs-body-color: var(--bs-white);
+  --bs-body-color-rgb: #{to-rgb($white)};
+  --bs-body-bg: var(--bs-blue);
+  --bs-body-bg-rgb: #{to-rgb($blue)};
+  --bs-tertiary-bg: #{$blue-600};
+
+  .dropdown-menu {
+    --bs-dropdown-bg: #{mix($blue-500, $blue-600)};
+    --bs-dropdown-link-active-bg: #{$blue-700};
+  }
+
+  .btn-secondary {
+    --bs-btn-bg: #{mix($gray-600, $blue-400, .5)};
+    --bs-btn-border-color: #{rgba($white, .25)};
+    --bs-btn-hover-bg: #{darken(mix($gray-600, $blue-400, .5), 5%)};
+    --bs-btn-hover-border-color: #{rgba($white, .25)};
+    --bs-btn-active-bg: #{darken(mix($gray-600, $blue-400, .5), 10%)};
+    --bs-btn-active-border-color: #{rgba($white, .5)};
+    --bs-btn-focus-border-color: #{rgba($white, .5)};
+    --bs-btn-focus-box-shadow: 0 0 0 .25rem rgba(255, 255, 255, .2);
+  }
+}
 </style>
 {% endblock %}
 {% block content %}
 <!-- Header Start -->
-<div class="container-fluid .bg-primary d-flex align-items-center .mb-5 py-5" id=".home" style="min-height: 100vh;">
+<div  class="container-fluid .bg-primary d-flex align-items-center .mb-5 py-5" id=".home" style="min-height: 100vh;">
 	<!--div style="min-height: 100vh; border-top-left-radius: 100%; border-bottom-right-radius:20%;"-->
 	<!--div id="particles-js" style="position:absolute; height: 100vh;"></div-->
-	<div class="container">
+	<div class="container" >
 		<div class="row align-items-center justify-content-center mb-5">
 			<div class="col-lg-5 .px-5 pl-lg-0 pb-5 pb-lg-0">
 				<button class="btn btn-sm .btn-outline" type="button" data-bs-toggle="modal"
