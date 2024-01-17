@@ -25,7 +25,7 @@
         {% csrf_token %}
         <div class="form-row row">
             <div class="col">
-                <div class="wrap-input100 validate-input m-b-16" data-validate="Social media name">
+                <div class=".wrap-input100 validate-input m-b-16" data-validate="Social media name">
                     <select id="media" class="form-select input100" unicorn:model="name">
                         <option value=""  selected>Social media</option>
                         {% for mtype in media_types %}
@@ -35,7 +35,7 @@
                 </div>
             </div>
             <div class="col">
-                <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter user_name">
+                <div class=".wrap-input100 validate-input m-b-16" data-validate="Please enter user_name">
                     <input class="input100" type="text" unicorn:model="user_name"  required
                         id="id_user_name" placeholder="username">
                 </div>
